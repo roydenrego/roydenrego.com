@@ -39,19 +39,6 @@
     flex-wrap: wrap;
 }
 
-/*.portfolio-container .project {*/
-/*    display: inline-block;*/
-/*    background: #fff;*/
-/*    color: #000;*/
-/*    box-shadow: 0 0 10px #424242;*/
-/*    border-radius: 5px;*/
-/*    overflow: hidden;*/
-    /*margin: 10px;*/
-/*    transition: 1s ease;*/
-/*    flex: 1 0 500px;*/
-
-/*}*/
-
 @media screen and (min-width: 40em) {
     .card {
        max-width: calc(50% -  1em);
@@ -225,4 +212,11 @@
   -webkit-transform: translate(5px, -50%);
           transform: translate(5px, -50%);
   opacity: 1;
+}
+
+
+@media(max-width: 720px) {
+  .card {
+    width: 100%;
+  }
 }
