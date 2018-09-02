@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var Content = require('../models/content');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Royden Rego' });
+    Content.find(function(err, content) {
+        console.log(err);
+        res.render('index', { title: 'Royden Rego', projects: content});
+    });
 });
 
 module.exports = router;
