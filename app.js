@@ -31,7 +31,30 @@ app.use('/admin', adminRouter);
 
 //Handle contact form submission
 app.post('/submit', function(req, res) {
-  res.send(req.body);
+  var data = req.body;
+  
+  if(!(data.fullname.trim()) || !(data.email.trim()) || !(data.message.trim())) {
+    res.render('error', {title: 'Invalid Action'});
+    return;
+  }
+  
+  var Form = require('./models/contact');
+  
+  Form.create(data, function (err, small) {
+    if (err) {
+      res.render('error', {title: 'Something went wrong'});
+      return;
+    }
+    
+    //Send email
+    res.send("Added"); //Replace with appropriate response
+    
+    Form.find(function(err, subs) {
+      console.log(subs);
+    });
+    
+  });
+  
 });
 
 // catch 404 and forward to error handler
