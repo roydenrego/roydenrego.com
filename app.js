@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+const sgMail = require('@sendgrid/mail');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
@@ -47,11 +48,22 @@ app.post('/submit', function(req, res) {
     }
     
     //Send email
-    res.send("Added"); //Replace with appropriate response
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     
-    Form.find(function(err, subs) {
-      console.log(subs);
-    });
+    const msg = {
+      to: 'roydenrego@softrixz.com',
+      from: 'no-reply@roydenrego.com',
+      subject: 'Royden Rego - ContactForm',
+      text: 'You have a new contact form submission',
+      html: '<p>You have a new contact form submission</p>' +
+          '<p>Full Name: ' + data.fullname + '</p>' +
+          '<p>Email: ' + data.email + '</p>' +
+          '<p>Message: ' + data.message + '</p>',
+    };
+    sgMail.send(msg);
+    
+    //Send JSON response
+    res.json({statuscode: 200, status: "Contact Form submission successfull"});
     
   });
   
