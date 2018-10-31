@@ -38,7 +38,6 @@
     display: flex;
     flex-wrap: wrap;
         margin-bottom: 35px;
-    margin-top: 100px;
 }
 
 .download-btn {
@@ -249,24 +248,34 @@
   }
 }
 
-input[type="radio"] {
+.portfolio-filters input[type="radio"] {
     display:none;
 }
-label {
-  width:23%;
-  float:left;
+.portfolio-filters label {
   text-align:center;
-  background:#ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  color:#222222;
-  padding:0.5%;
+  /*background:#ffffff;*/
+  /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+  color:#fff;
+  padding:0.7%;
   margin:0.5%;
   margin-bottom:30px;
   cursor:pointer;
+       border-radius: 6px;
+    transition: 1s ease;
 }
 
-input[type="radio"][id="mobile"]:checked + label {
-  background:#6666ff;
+.portfolio-filters label:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+.portfolio-filters .active {
+    background: #fff;
+    color: #000;
+}
+
+.portfolio-filters input[type="radio"][id="mobile"]:checked + label, .portfolio-filters input[type="radio"][id="web"]:checked + label, .portfolio-filters input[type="radio"][id="workshop"]:checked + label, .portfolio-filters input[type="radio"][id="reset"]:checked + label {
+  background: #fff;
+    color: #000;
 }
 /*.portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .web-design, .portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .workshop {*/
 /*  width:0;*/
@@ -275,9 +284,10 @@ input[type="radio"][id="mobile"]:checked + label {
 /*  margin:0;*/
 /*  opacity:0;*/
 /*}*/
-input[type="radio"][id="web"]:checked + label {
-  background:#ff4466;
-}
+/*input[type="radio"][id="web"]:checked + label {*/
+/*  background: #fff;*/
+/*    color: #000;*/
+/*}*/
 /*input[type="radio"][id="web"]:checked ~ .mobile-app, input[type="radio"][id="red"]:checked ~ .web-design {*/
 /*  width:0;*/
 /*  height:0;*/
@@ -285,9 +295,10 @@ input[type="radio"][id="web"]:checked + label {
 /*  margin:0;*/
 /*  opacity:0;*/
 /*}*/
-input[type="radio"][id="workshop"]:checked + label {
-  background:#66dd99;
-}
+/*input[type="radio"][id="workshop"]:checked + label {*/
+/*  background: #fff;*/
+/*    color: #000;*/
+/*}*/
 /*input[type="radio"][id="workshop"]:checked ~ .mobile-app, input[type="radio"][id="green"]:checked ~ .web-design {*/
 /*  width:0;*/
 /*  height:0;*/
