@@ -240,11 +240,27 @@
                          <p>Some of the projects I have worked on.</p>
                     </div>
                     
+                    <div class="portfolio-filters">
+                         <input type="radio" id="reset" name="project_type"/>
+                         <label for="reset">All</label>
+                         
+                         <input type="radio" id="mobile" name="project_type" />
+                         <label for="mobile">Mobile App</label>
+                         
+                         <input type="radio" id="web" name="project_type"/>
+                         <label for="web">Web Design</label>
+                         
+                         <input type="radio" id="workshop" name="project_type"/>
+                         <label for="workshop">Workshops</label>
+                         <div class="mobile-app"></div>
+                    </div>
+                    
+                    
                     
                     <div class="portfolio-container">
                          
                     {{# each projects }}
-                         <div class="example-2 card wow fadeInUp" data-wow-delay="1.2s">
+                         <div class="example-2 card wow fadeInUp mobile-app" data-wow-delay="1.2s">
                                {{!--style="background: url('{{ this.image_url }}') center/cover no-repeat;"--}}
                              <div class="wrapper">
                                <div class="header">
@@ -273,7 +289,34 @@
                          </div>
                     {{/each}}
                          
-                         <div class="example-2 card">
+                         <div class="example-2 card web-design">
+                             <div class="wrapper">
+                               <div class="header">
+                                 <div class="date">
+                                   <span class="day">12</span>
+                                   <span class="month">Aug</span>
+                                   <span class="year">2016</span>
+                                 </div>
+                                 <ul class="menu-content">
+                                   <li>
+                                     <a href="#" class="fa fa-bookmark-o"></a>
+                                   </li>
+                                   <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+                                   <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+                                 </ul>
+                               </div>
+                               <div class="data">
+                                 <div class="content">
+                                   <span class="author">Jane Doe</span>
+                                   <h1 class="title"><a href="#">Stranger Things: The sound of the Upside Down</a></h1>
+                                   <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>
+                                   <a href="#" class="button">Read more</a>
+                                 </div>
+                               </div>
+                             </div>
+                         </div>
+                         
+                         <div class="example-2 card web-design">
                              <div class="wrapper">
                                <div class="header">
                                  <div class="date">
@@ -343,8 +386,9 @@
 
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
                          <i class="wow fadeInUp fa fa-star" data-wow-delay="0.6s"></i>
-                         <h2 class="wow fadeInUp" data-wow-delay="0.8s">Proin lobortis eu diam et facilisis. Fusce nisi nibh, molestie in vestibulum quis, auctor et orci.</h2>
-                         <p class="wow fadeInUp" data-wow-delay="1s">Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis eu, iaculis congue sem.</p>
+                         <h2 class="wow fadeInUp" data-wow-delay="0.8s">You can download a copy of my resume for future or offline reference.</h2>
+                         {{!--<p class="wow fadeInUp" data-wow-delay="1s">Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis eu, iaculis congue sem.</p>--}}
+                         <a href="/files/RoydenRego_Resume.pdf" target="_blank" class="wow fadeInUp download-btn" data-wow-delay="1s">Download Printable Resume</a>
                     </div>
 
                </div>

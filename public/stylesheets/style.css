@@ -38,6 +38,32 @@
     display: flex;
     flex-wrap: wrap;
         margin-bottom: 35px;
+    margin-top: 100px;
+}
+
+.download-btn {
+    background-color: transparent;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    padding: 12px 36px;
+    margin-top: 42px;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.download-btn:hover {
+   background-color: #000;
+    border-color: #000;
+    color: #ffffff;
+}
+
+.download-btn:focus {
+  color: #fff;
 }
 
 @media screen and (min-width: 40em) {
@@ -69,6 +95,7 @@
     box-sizing: border-box;
     margin: 1rem .25em;
     color: #fff;
+    transition:all 1s;
 }
 .card .menu-content {
   margin: 0;
@@ -220,4 +247,59 @@
   .card {
     width: 100%;
   }
+}
+
+input[type="radio"] {
+    display:none;
+}
+label {
+  width:23%;
+  float:left;
+  text-align:center;
+  background:#ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#222222;
+  padding:0.5%;
+  margin:0.5%;
+  margin-bottom:30px;
+  cursor:pointer;
+}
+
+input[type="radio"][id="mobile"]:checked + label {
+  background:#6666ff;
+}
+/*.portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .web-design, .portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .workshop {*/
+/*  width:0;*/
+/*  height:0;*/
+/*  padding:0;*/
+/*  margin:0;*/
+/*  opacity:0;*/
+/*}*/
+input[type="radio"][id="web"]:checked + label {
+  background:#ff4466;
+}
+/*input[type="radio"][id="web"]:checked ~ .mobile-app, input[type="radio"][id="red"]:checked ~ .web-design {*/
+/*  width:0;*/
+/*  height:0;*/
+/*  padding:0;*/
+/*  margin:0;*/
+/*  opacity:0;*/
+/*}*/
+input[type="radio"][id="workshop"]:checked + label {
+  background:#66dd99;
+}
+/*input[type="radio"][id="workshop"]:checked ~ .mobile-app, input[type="radio"][id="green"]:checked ~ .web-design {*/
+/*  width:0;*/
+/*  height:0;*/
+/*  padding:0;*/
+/*  margin:0;*/
+/*  opacity:0;*/
+/*}*/
+
+.card-disappear {
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
 }

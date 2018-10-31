@@ -82,12 +82,14 @@ $(document).ready(function() {
   new WOW({ mobile: false }).init();
 
 
+  //Contact Form Submit
+
   $("#contactForm").on('submit', function(e) {
     e.preventDefault();
     
-    let submit_url = site_url + "/submit"
+    //let submit_url = site_url + "/submit"
     $.ajax({
-      url: submit_url,
+      url: '/submit',
       type: "POST",
       cache: false,
       data: $("#contactForm").serialize(),
@@ -102,6 +104,31 @@ $(document).ready(function() {
       }
     });
   });
+  
+  //Content Filter
+  
+  $('input:radio[name="project_type"]').change(
+    function(){
+        if (this.checked) {
+            var type = $(this).attr('id');
+            
+            
+            $(".card").removeClass('card-disappear');
+            
+            if(type == "mobile") {
+              $(".web-design").addClass('card-disappear');
+              $(".workshop").addClass('card-disappear');
+            }
+            else if(type == "web") {
+              $(".mobile-app").addClass('card-disappear');
+              $(".workshop").addClass('card-disappear');
+            }
+            else if(type == "workshop") {
+              $(".mobile-app").addClass('card-disappear');
+              $(".web-design").addClass('card-disappear');
+            }
+        }
+    });
   
   
 });
