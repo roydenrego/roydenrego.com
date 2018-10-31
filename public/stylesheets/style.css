@@ -1,64 +1,69 @@
 /*body {*/
+
 /*  padding: 50px;*/
+
 /*  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+
 /*}*/
 
 /*a {*/
+
 /*  color: #00B7FF;*/
+
 /*}*/
 
 .education-fas {
-      margin-right: 19px !important;
+  margin-right: 19px !important;
 }
 
 .exp-small {
-    margin-left: 6px;
+  margin-left: 6px;
 }
 
 #education {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .portfolio-content {
-        text-align: center;
-    color: #fff;
-    margin: 0 auto;
-    padding: 0 1em;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto;
+  padding: 0 1em;
 }
 
-.portfolio-content > h1 {
-        margin-top: 35px;
+.portfolio-content>h1 {
+  margin-top: 35px;
 }
 
 .portfolio-content p {
-    color: #fff;
+  color: #fff;
 }
 
 .portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-        margin-bottom: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
 }
 
 .download-btn {
-    background-color: transparent;
-    border: 3px solid #fff;
-    border-radius: 100px;
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1.6px;
-    padding: 12px 36px;
-    margin-top: 42px;
-    transition: all 0.4s ease-in-out;
-    text-transform: uppercase;
-    display: inline-block;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.6px;
+  padding: 12px 36px;
+  margin-top: 42px;
+  transition: all 0.4s ease-in-out;
+  text-transform: uppercase;
+  display: inline-block;
 }
 
 .download-btn:hover {
-   background-color: #000;
-    border-color: #000;
-    color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+  color: #ffffff;
 }
 
 .download-btn:focus {
@@ -66,22 +71,22 @@
 }
 
 @media screen and (min-width: 40em) {
-    .card {
-       max-width: calc(50% -  1em);
-    }
+  .card {
+    max-width: calc(50% - 1em);
+  }
 }
 
 @media screen and (min-width: 60em) {
-    .card {
-        max-width: calc(33% - 1em);
-    }
+  .card {
+    max-width: calc(33% - 1em);
+  }
 }
 
 
 @media screen and (min-width: 52em) {
-    .portfolio-content {
-        max-width: 90em;
-    }
+  .portfolio-content {
+    max-width: 90em;
+  }
 }
 
 
@@ -90,30 +95,37 @@
   float: left;
   padding: 0 1.7rem;
   width: 50%;
-  
-    box-sizing: border-box;
-    margin: 1rem .25em;
-    color: #fff;
-    transition:all 1s;
+
+  box-sizing: border-box;
+  margin: 1rem .25em;
+  color: #fff;
+  transition: all 1s;
 }
+
 .card .menu-content {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-.card .menu-content::before, .card .menu-content::after {
+
+.card .menu-content::before,
+.card .menu-content::after {
   content: '';
   display: table;
 }
+
 .card .menu-content::after {
   clear: both;
 }
+
 .card .menu-content li {
   display: inline-block;
 }
+
 .card .menu-content a {
   color: #fff;
 }
+
 .card .menu-content span {
   position: absolute;
   left: 50%;
@@ -122,8 +134,9 @@
   font-weight: 700;
   font-family: 'Open Sans';
   -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
+
 .card .wrapper {
   background-color: #fff;
   min-height: 400px;
@@ -131,88 +144,108 @@
   overflow: hidden;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
 }
+
 .card .wrapper:hover .data {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
 }
+
 .card .data {
   position: absolute;
   bottom: 0;
   width: 100%;
   -webkit-transform: translateY(calc(70px + 1em));
-          transform: translateY(calc(70px + 1em));
+  transform: translateY(calc(70px + 1em));
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
+
 .card .data .content {
   padding: 1em;
   position: relative;
   z-index: 1;
 }
+
 .card .author {
   font-size: 12px;
 }
+
 .card .title {
   margin-top: 10px;
 }
+
 .card .text {
   height: 70px;
   margin: 0;
 }
+
 .card input[type='checkbox'] {
   display: none;
 }
-.card input[type='checkbox']:checked + .menu-content {
+
+.card input[type='checkbox']:checked+.menu-content {
   -webkit-transform: translateY(-60px);
-          transform: translateY(-60px);
+  transform: translateY(-60px);
 }
 
 
 .example-2 .wrapper {
   background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center/cover no-repeat;
 }
+
 .example-2 .wrapper:hover .menu-content span {
   -webkit-transform: translate(-50%, -10px);
-          transform: translate(-50%, -10px);
+  transform: translate(-50%, -10px);
   opacity: 1;
 }
+
 .example-2 .header {
   color: #fff;
   padding: 1em;
 }
-.example-2 .header::before, .example-2 .header::after {
+
+.example-2 .header::before,
+.example-2 .header::after {
   content: '';
   display: table;
 }
+
 .example-2 .header::after {
   clear: both;
 }
+
 .example-2 .header .date {
   float: left;
   font-size: 12px;
 }
+
 .example-2 .menu-content {
   float: right;
 }
+
 .example-2 .menu-content li {
   margin: 0 5px;
   position: relative;
 }
+
 .example-2 .menu-content span {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   opacity: 0;
 }
+
 .example-2 .data {
   color: #fff;
   -webkit-transform: translateY(calc(70px + 4em));
-          transform: translateY(calc(70px + 4em));
+  transform: translateY(calc(70px + 4em));
 }
+
 .example-2 .title a {
   color: #fff;
 }
+
 .example-2 .button {
   display: block;
   width: 100px;
@@ -224,6 +257,7 @@
   position: relative;
   font-weight: 700;
 }
+
 .example-2 .button::after {
   content: '\2192';
   opacity: 0;
@@ -231,13 +265,14 @@
   right: 0;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
+
 .example-2 .button:hover::after {
   -webkit-transform: translate(5px, -50%);
-          transform: translate(5px, -50%);
+  transform: translate(5px, -50%);
   opacity: 1;
 }
 
@@ -249,68 +284,41 @@
 }
 
 .portfolio-filters input[type="radio"] {
-    display:none;
+  display: none;
 }
+
 .portfolio-filters label {
-  text-align:center;
-  /*background:#ffffff;*/
-  /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-  color:#fff;
-  padding:0.7%;
-  margin:0.5%;
-  margin-bottom:30px;
-  cursor:pointer;
-       border-radius: 6px;
-    transition: 1s ease;
+  text-align: center;
+  color: #fff;
+  padding: 0.7%;
+  margin: 0.5%;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 1s ease;
 }
 
 .portfolio-filters label:hover {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-filters .active {
-    background: #fff;
-    color: #000;
+  background: #fff;
+  color: #000;
 }
 
-.portfolio-filters input[type="radio"][id="mobile"]:checked + label, .portfolio-filters input[type="radio"][id="web"]:checked + label, .portfolio-filters input[type="radio"][id="workshop"]:checked + label, .portfolio-filters input[type="radio"][id="reset"]:checked + label {
+.portfolio-filters input[type="radio"][id="mobile"]:checked+label,
+.portfolio-filters input[type="radio"][id="web"]:checked+label,
+.portfolio-filters input[type="radio"][id="workshop"]:checked+label,
+.portfolio-filters input[type="radio"][id="reset"]:checked+label {
   background: #fff;
-    color: #000;
+  color: #000;
 }
-/*.portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .web-design, .portfolio-filters input[type="radio"][id="mobile"]:checked ~ .portfolio-container .workshop {*/
-/*  width:0;*/
-/*  height:0;*/
-/*  padding:0;*/
-/*  margin:0;*/
-/*  opacity:0;*/
-/*}*/
-/*input[type="radio"][id="web"]:checked + label {*/
-/*  background: #fff;*/
-/*    color: #000;*/
-/*}*/
-/*input[type="radio"][id="web"]:checked ~ .mobile-app, input[type="radio"][id="red"]:checked ~ .web-design {*/
-/*  width:0;*/
-/*  height:0;*/
-/*  padding:0;*/
-/*  margin:0;*/
-/*  opacity:0;*/
-/*}*/
-/*input[type="radio"][id="workshop"]:checked + label {*/
-/*  background: #fff;*/
-/*    color: #000;*/
-/*}*/
-/*input[type="radio"][id="workshop"]:checked ~ .mobile-app, input[type="radio"][id="green"]:checked ~ .web-design {*/
-/*  width:0;*/
-/*  height:0;*/
-/*  padding:0;*/
-/*  margin:0;*/
-/*  opacity:0;*/
-/*}*/
 
 .card-disappear {
-  width:0;
-  height:0;
-  padding:0;
-  margin:0;
-  opacity:0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
 }
