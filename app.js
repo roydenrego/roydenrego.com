@@ -100,7 +100,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {title: '404 - Not Found'});
+  res.render('error', {title: '404 - Not Found', rel_link: '/'});
 });
 
 module.exports = app;
