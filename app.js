@@ -6,6 +6,8 @@ var logger = require('morgan');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 const sgMail = require('@sendgrid/mail');
+const fs = require('fs');
+const AWS = require('aws-sdk');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
@@ -14,11 +16,39 @@ var app = express();
 
 require('dotenv').config();
 
-
 mongoose.connect(process.env.DB_CONN);
 
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
+
+// const fileName = 'public/images/site_icon.png';
+
+// const uploadFile = () => {
+//   fs.readFile(fileName, (err, data) => {
+//      if (err) throw err;
+//      const params = {
+//          Bucket: 'roydenrego', // pass your bucket name
+//          Key: 'content/test.png', // file will be saved as testBucket/contacts.csv
+//          Body: JSON.stringify(data, null, 2),
+//          ACL:'public-read'
+//      };
+//      s3.upload(params, function(s3Err, data) {
+//          if (s3Err) throw s3Err
+//          console.log(`File uploaded successfully at ${data.Location}`)
+//      });
+//   });
+// };
+
+// uploadFile();
+
 // view engine setup
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.engine('.hbs', expressHbs({
+  defaultLayout: 'layout', 
+  extname: '.hbs', 
+  helpers: require("./helpers/portfolioHbsHelper.js").helpers
+}));
 app.set('view engine', '.hbs');
 
 app.use(logger('dev'));

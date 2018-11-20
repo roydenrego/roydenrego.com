@@ -58,6 +58,13 @@
                               </div>
 
                               <div class=" wow fadeInUp skills-thumb" data-wow-delay="1.6s">
+
+                                   <strong>REST API Development</strong>
+                                   <span class="color-white pull-right">95%</span>
+                                   <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"></div>
+                                   </div>
+
                                    <strong>Application Development</strong>
                                    <span class="color-white pull-right">90%</span>
                                    <div class="progress">
@@ -252,7 +259,7 @@
                          
                          <input type="radio" id="workshop" name="project_type"/>
                          <label for="workshop">Workshops</label>
-                         <div class="mobile-app"></div>
+                         {{!-- <div class="mobile-app"></div> --}}
                     </div>
                     
                     
@@ -260,116 +267,31 @@
                     <div class="portfolio-container">
                          
                     {{# each projects }}
-                         <div class="example-2 card wow fadeInUp mobile-app" data-wow-delay="1.2s">
+                         <div class="example-2 card wow fadeInUp {{ this.project_type }}" data-wow-delay="1.2s" id="card-{{ this._id }}" data-json="{{ printJson this }}">
                                {{!--style="background: url('{{ this.image_url }}') center/cover no-repeat;"--}}
-                             <div class="wrapper">
+                             <div class="wrapper" style="background: url({{this.image_url}}) center/cover no-repeat;">
                                <div class="header">
                                  <div class="date">
-                                   <span class="day">12</span>
-                                   <span class="month">Aug</span>
-                                   <span class="year">2016</span>
+                                   <span class="day">{{printDate this.created 1}}</span>
+                                   <span class="month">{{printDate this.created 2}}</span>
+                                   <span class="year">{{printDate this.created 3}}</span>
                                  </div>
                                  <ul class="menu-content">
-                                   <li>
-                                     <a href="#" class="fa fa-bookmark-o"></a>
-                                   </li>
-                                   <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-                                   <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+                                   <li><a href="javascript:null" class="fa fa-user-o "><span>{{ this.team_size }}</span></a></li>
+                                   <li><a href="javascript:null" class="fa fa-calendar-o"><span>{{ this.duration }}</span></a></li>
                                  </ul>
                                </div>
                                <div class="data">
                                  <div class="content">
-                                   <span class="author">Jane Doe</span>
-                                   <h1 class="title"><a href="#popup-article">{{ this.title }}</a></h1>
+                                   <span class="author">{{ this.project_date }}</span>
+                                   <h1 class="title"><a href="#popup-article" data-id="{{ this._id }}">{{ this.title }}</a></h1>
                                    <p class="text">{{ this.description }}</p>
-                                   <a href="#" class="button">Read more</a>
+                                   <a href="#popup-article" class="button" data-id="{{ this._id }}">Read more</a>
                                  </div>
                                </div>
                              </div>
                          </div>
                     {{/each}}
-                         
-                         <div class="example-2 card web-design">
-                             <div class="wrapper">
-                               <div class="header">
-                                 <div class="date">
-                                   <span class="day">12</span>
-                                   <span class="month">Aug</span>
-                                   <span class="year">2016</span>
-                                 </div>
-                                 <ul class="menu-content">
-                                   <li>
-                                     <a href="#" class="fa fa-bookmark-o"></a>
-                                   </li>
-                                   <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-                                   <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
-                                 </ul>
-                               </div>
-                               <div class="data">
-                                 <div class="content">
-                                   <span class="author">Jane Doe</span>
-                                   <h1 class="title"><a href="#" id="open-button">Stranger Things: The sound of the Upside Down</a></h1>
-                                   <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>
-                                   <a href="#" class="button">Read more</a>
-                                 </div>
-                               </div>
-                             </div>
-                         </div>
-                         
-                         <div class="example-2 card web-design">
-                             <div class="wrapper">
-                               <div class="header">
-                                 <div class="date">
-                                   <span class="day">12</span>
-                                   <span class="month">Aug</span>
-                                   <span class="year">2016</span>
-                                 </div>
-                                 <ul class="menu-content">
-                                   <li>
-                                     <a href="#" class="fa fa-bookmark-o"></a>
-                                   </li>
-                                   <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-                                   <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
-                                 </ul>
-                               </div>
-                               <div class="data">
-                                 <div class="content">
-                                   <span class="author">Jane Doe</span>
-                                   <h1 class="title"><a href="#">Stranger Things: The sound of the Upside Down</a></h1>
-                                   <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>
-                                   <a href="#" class="button">Read more</a>
-                                 </div>
-                               </div>
-                             </div>
-                         </div>
-                         
-                         {{!--<div class="example-2 card">--}}
-                         {{!--    <div class="wrapper">--}}
-                         {{!--      <div class="header">--}}
-                         {{!--        <div class="date">--}}
-                         {{!--          <span class="day">12</span>--}}
-                         {{!--          <span class="month">Aug</span>--}}
-                         {{!--          <span class="year">2016</span>--}}
-                         {{!--        </div>--}}
-                         {{!--        <ul class="menu-content">--}}
-                         {{!--          <li>--}}
-                         {{!--            <a href="#" class="fa fa-bookmark-o"></a>--}}
-                         {{!--          </li>--}}
-                         {{!--          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>--}}
-                         {{!--          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>--}}
-                         {{!--        </ul>--}}
-                         {{!--      </div>--}}
-                         {{!--      <div class="data">--}}
-                         {{!--        <div class="content">--}}
-                         {{!--          <span class="author">Jane Doe</span>--}}
-                         {{!--          <h1 class="title"><a href="#">Stranger Things: The sound of the Upside Down</a></h1>--}}
-                         {{!--          <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>--}}
-                         {{!--          <a href="#" class="button">Read more</a>--}}
-                         {{!--        </div>--}}
-                         {{!--      </div>--}}
-                         {{!--    </div>--}}
-                         {{!--</div>--}}
-                         
                          
                     </div>
 
@@ -457,15 +379,19 @@
      </section>
      
      <div id="popup-article" class="popup">
-       <div class="popup__block">
-         <h1 class="popup__title">The my adventure in the France and photography with Tour De France</h1>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eaque optio vitae in explicabo recusandae sit id sapiente excepturi tempore, nemo, nulla odio deleniti rerum nisi perferendis aut molestias! Incidunt nesciunt iusto praesentium! In at maiores quibusdam enim quis, quam!</p>
-         <p>Architecto magni dolores cumque tenetur nemo id aperiam, ratione temporibus at, consectetur totam, fuga et illo rerum earum dicta. Vitae ullam harum enim aliquid hic commodi voluptas cumque iste ex accusantium architecto doloremque reprehenderit, asperiores vero dolor, esse inventore dolorem.</p>
-         <p>Excepturi eaque, reprehenderit dolores, cum molestias repellendus in expedita. Placeat totam, quos pariatur quidem explicabo id harum ab voluptatum. Necessitatibus, aliquam! Dolorum voluptatem ut laudantium excepturi cumque, hic iure impedit ullam accusantium error natus recusandae, quia fuga quo voluptates officiis?</p>    
-         <p>Dignissimos debitis eos necessitatibus accusantium natus voluptates illo blanditiis corporis minus. Repudiandae libero quae, illo error expedita consectetur possimus voluptate eum esse quam molestiae tempore dignissimos ipsam similique ab quod. Ea earum adipisci rem voluptatem aliquid voluptatum deleniti necessitatibus provident.</p>
-         <p>Dicta eum amet impedit maiores accusamus numquam saepe necessitatibus temporibus ut! Velit ducimus repellendus fuga repudiandae culpa voluptatibus delectus praesentium totam odit ratione, tenetur assumenda, labore esse et nostrum a, aut veritatis. Nihil, voluptas, impedit? Magnam dolorum, iure repellendus vitae.</p>
-         <p>Temporibus voluptatum voluptatibus iste, nam atque dignissimos quam labore sequi adipisci tempore exercitationem quos, libero, reprehenderit facere quasi soluta, itaque at eum cum possimus! Facilis, tempora soluta at quis. Nemo expedita voluptate esse nam ex odit, sequi eveniet quibusdam, dolores?</p>
-         <p>Praesentium laboriosam iste dolore cumque voluptatibus deleniti quia, delectus provident, illum aperiam, atque molestiae. Cum delectus, doloribus expedita eius veritatis assumenda deleniti veniam reprehenderit animi ut, eaque asperiores, dicta incidunt omnis repellendus dolorum enim inventore rerum voluptatem saepe error id.</p>
-         <a href="#portfolio" class="popup__close">close</a>
-       </div>
+          <div class="popup__block">
+     
+               <h1 class="popup__title" id="port-title">The my adventure in the France and photography with Tour De France</h1>
+               <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eaque optio vitae in explicabo recusandae sit id sapiente excepturi tempore, nemo, nulla odio deleniti rerum nisi perferendis aut molestias! Incidunt nesciunt iusto praesentium! In at maiores quibusdam enim quis, quam!</p>
+                    <p>Architecto magni dolores cumque tenetur nemo id aperiam, ratione temporibus at, consectetur totam, fuga et illo rerum earum dicta. Vitae ullam harum enim aliquid hic commodi voluptas cumque iste ex accusantium architecto doloremque reprehenderit, asperiores vero dolor, esse inventore dolorem.</p>
+                    <p>Excepturi eaque, reprehenderit dolores, cum molestias repellendus in expedita. Placeat totam, quos pariatur quidem explicabo id harum ab voluptatum. Necessitatibus, aliquam! Dolorum voluptatem ut laudantium excepturi cumque, hic iure impedit ullam accusantium error natus recusandae, quia fuga quo voluptates officiis?</p>    
+                    <p>Dignissimos debitis eos necessitatibus accusantium natus voluptates illo blanditiis corporis minus. Repudiandae libero quae, illo error expedita consectetur possimus voluptate eum esse quam molestiae tempore dignissimos ipsam similique ab quod. Ea earum adipisci rem voluptatem aliquid voluptatum deleniti necessitatibus provident.</p>
+                    <p>Dicta eum amet impedit maiores accusamus numquam saepe necessitatibus temporibus ut! Velit ducimus repellendus fuga repudiandae culpa voluptatibus delectus praesentium totam odit ratione, tenetur assumenda, labore esse et nostrum a, aut veritatis. Nihil, voluptas, impedit? Magnam dolorum, iure repellendus vitae.</p>
+                    <p>Temporibus voluptatum voluptatibus iste, nam atque dignissimos quam labore sequi adipisci tempore exercitationem quos, libero, reprehenderit facere quasi soluta, itaque at eum cum possimus! Facilis, tempora soluta at quis. Nemo expedita voluptate esse nam ex odit, sequi eveniet quibusdam, dolores?</p>
+                    <p>Praesentium laboriosam iste dolore cumque voluptatibus deleniti quia, delectus provident, illum aperiam, atque molestiae. Cum delectus, doloribus expedita eius veritatis assumenda deleniti veniam reprehenderit animi ut, eaque asperiores, dicta incidunt omnis repellendus dolorum enim inventore rerum voluptatem saepe error id.</p>
+               </div>
+
+               <a href="#portfolio" class="popup__close">close</a>
+          </div>
      </div>

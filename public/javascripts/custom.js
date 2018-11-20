@@ -130,5 +130,12 @@ $(document).ready(function() {
       }
     });
 
-
+    //Loading the Portfolio Popup
+    $('.card .content a').on('click', function(e) {
+      var id = $(this).attr('data-id');
+      var data = JSON.parse($('#card-' + id).attr('data-json'));
+      
+      $("#port-title").text(data.title);
+      $("#popup-article .content")[0].innerHTML = data.content;
+    });
 });
