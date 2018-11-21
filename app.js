@@ -27,33 +27,17 @@ require('dotenv').config();
 
 mongoose.connect(process.env.DB_CONN, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
-const db = mongoose.connection
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', reason.stack || reason)
+  // Recommended: send the information to sentry.io
+  // or whatever crash reporting service you use
+})
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
-
-// const fileName = 'public/images/site_icon.png';
-
-// const uploadFile = () => {
-//   fs.readFile(fileName, (err, data) => {
-//       if (err) throw err;
-//       const params = {
-//           Bucket: 'roydenrego', // pass your bucket name
-//           Key: 'content/test.png', // file will be saved as testBucket/contacts.csv
-//           Body: data,
-//           ContentType: 'image/png',
-//           ACL:'public-read'
-//       };
-//       s3.upload(params, function(s3Err, data) {
-//           if (s3Err) throw s3Err
-//           console.log(`File uploaded successfully at ${data.Location}`)
-//       });
-//   });
-// };
-
-// uploadFile();
 
 // view engine setup
 app.engine('.hbs', expressHbs({
