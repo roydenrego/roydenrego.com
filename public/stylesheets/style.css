@@ -463,7 +463,7 @@
 }
 
 @media(min-width: 768px) {
-  .about-row, .exu-row {
+  .exu-row {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -472,7 +472,7 @@
     flex-wrap: wrap;
   }
   
-  .about-cell, .exu-cell {
+  .exu-cell {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -481,7 +481,7 @@
 
 @media(min-width: 990px) {
   
-  .contact-row {
+  .about-row, .contact-row {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -490,7 +490,7 @@
     flex-wrap: wrap;
   }
   
-  .contact-cell {
+  .about-cell, .contact-cell {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;

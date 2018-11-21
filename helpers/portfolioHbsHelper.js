@@ -20,6 +20,12 @@ var register = function(Handlebars) {
       },
       printJson: function(obj) {
           return JSON.stringify(obj);
+      },
+      stringEquals: function(str1, str2, block) {
+        if(str1.localeCompare(str2) == 0) {
+          return true;
+        }
+        return false;
       }
     };
   

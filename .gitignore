@@ -1,3 +1,4 @@
 .env
 sendgrid.env
 node_modules
+srtdash-admin-dashboard

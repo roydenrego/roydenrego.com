@@ -1,0 +1,19 @@
+{
+  "name": "@iterable/ckeditor-imagebrowser",
+  "version": "1.0.0",
+  "description": "CKEditor Image Browser plugin =============================",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iterable/ckeditor-imagebrowser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iterable/ckeditor-imagebrowser/issues"
+  },
+  "homepage": "https://github.com/Iterable/ckeditor-imagebrowser#readme"
+}
