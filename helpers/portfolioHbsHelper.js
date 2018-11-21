@@ -26,6 +26,13 @@ var register = function(Handlebars) {
           return true;
         }
         return false;
+      },
+      wowDelay: function(index) {
+        if(index == 0) {
+          return 1.2;
+        }
+        
+        return 1.2 + (index / 10);
       }
     };
   

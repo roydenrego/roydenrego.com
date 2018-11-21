@@ -267,7 +267,7 @@
                     <div class="portfolio-container">
                          
                     {{# each projects }}
-                         <div class="example-2 card wow fadeInUp {{ this.project_type }}" data-wow-delay="1.2s" id="card-{{ this._id }}" data-json="{{ printJson this }}">
+                         <div class="example-2 card wow fadeInUp {{ this.project_type }}" data-wow-delay="{{wowDelay @index}}s" id="card-{{ this._id }}" data-json="{{ printJson this }}">
                                {{!--style="background: url('{{ this.image_url }}') center/cover no-repeat;"--}}
                              <div class="wrapper" style="background: url({{this.image_url}}) center/cover no-repeat;">
                                <div class="header">
