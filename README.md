@@ -1,5 +1,8 @@
 # roydenrego.com
-Personal Portfolio website built in Node.js using the Stimulus Template
+> Personal Portfolio website built in Node.js using the Stimulus Template
+
+[![License](https://img.shields.io/github/license/roydenrego/roydenrego.com.svg)](https://github.com/roydenrego/roydenrego.com/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/roydenrego/roydenrego.com.svg?branch=master)](https://travis-ci.org/roydenrego/roydenrego.com) 
 
 ## Table of Contents
 - [Getting Started](#getting-started)
