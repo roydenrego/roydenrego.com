@@ -43,7 +43,7 @@ const s3 = new AWS.S3({
 app.engine('.hbs', expressHbs({
   defaultLayout: 'layout',
   extname: '.hbs',
-  helpers: require("./helpers/portfolioHbsHelper.js").helpers
+  helpers: require("./helpers/hbs-helper.js").helpers
 }));
 app.set('view engine', '.hbs');
 
@@ -216,6 +216,11 @@ const upload = multer();
 
 app.post('/admin/uploadimage', upload.single('upload'), function(req, res, next) {
   
+  if (!req.session.userId) {
+    res.json({statuscode: 400, status: "Bad Request"});
+    return;
+  }
+  
   var fileName = Util.random_string(20) + '.' + Util.get_ext(req.file.originalname);
   
   const params = {
@@ -230,6 +235,23 @@ app.post('/admin/uploadimage', upload.single('upload'), function(req, res, next)
           console.log(`File uploaded successfully at ${data.Location}`);
           res.json({uploaded: 1, fileName: fileName, url: data.Location});
       });
+});
+
+app.post('/admin/edit-project', function(req, res) {
+  
+  if (!req.session.userId) {
+    res.json({statuscode: 400, status: "Bad Request"});
+    return;
+  }
+  
+  var data = req.body;
+  
+  var Content = require('./models/content');
+
+  Content.updateOne({ _id: data.id }, data, function(err, dbres) {
+    res.redirect(`/admin/edit-project?id=${data.id}`);
+  });
+  
 });
 
 // catch 404 and forward to error handler
