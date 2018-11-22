@@ -34,6 +34,7 @@ Start by typing the following commands in your terminal in order to get **Admina
 ## Built With
 - Stimulus Template: [http://www.templatemo.com/tm-498-stimulus](http://www.templatemo.com/tm-498-stimulus)
 - News Cards: [https://codepen.io/choogoor/pen/YWBxAg](https://codepen.io/choogoor/pen/YWBxAg)
+- SRTdash: [https://github.com/puikinsh/srtdash-admin-dashboard](https://github.com/puikinsh/srtdash-admin-dashboard)
 
 ## Changelog
 #### V 1.0.0
