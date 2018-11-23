@@ -33,6 +33,10 @@ var register = function(Handlebars) {
         }
         
         return 1.2 + (index / 10);
+      },
+      printFullDate: function(str) {
+        var d = new Date(str);
+        return d.toLocaleString()
       }
     };
   

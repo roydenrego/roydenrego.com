@@ -20,6 +20,7 @@ var adminRouter = require('./routes/admin');
 var adminLoginRouter = require("./routes/admin/login");
 var adminProjectRouter = require('./routes/admin/projects');
 var adminEditProjectRouter = require('./routes/admin/edit-project');
+var adminContactRouter = require('./routes/admin/contact-subs');
 
 var app = express();
 
@@ -68,6 +69,7 @@ app.use('/admin', adminRouter);
 app.use('/admin/login', adminLoginRouter);
 app.use('/admin/projects', adminProjectRouter);
 app.use('/admin/edit-project', adminEditProjectRouter);
+app.use('/admin/contact', adminContactRouter);
 
 //Handle contact form submission
 app.post('/submit', function(req, res) {
@@ -183,7 +185,7 @@ app.post('/admin/login', function(req, res) {
 
 app.get('/admin/logout', function(req, res) {
   req.session.destroy();
-  res.redirect('/admin/login');
+  res.redirect('/admin/login?logout=true');
 });
 
 app.get('/admin/getimages', function(req, res) {

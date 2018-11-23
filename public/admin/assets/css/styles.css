@@ -2349,6 +2349,17 @@ table.dataTable thead td {
     color: #fff;
 }
 
+.login-form-logout {
+    text-align: center;
+    background: #2ecc71;
+    color: #fff;
+    padding: 10px;
+}
+
+.login-form-logout p {
+    color: #fff;
+}
+
 .form-gp {
     margin-bottom: 25px;
     position: relative;

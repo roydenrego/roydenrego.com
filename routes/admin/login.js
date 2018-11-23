@@ -12,7 +12,10 @@ router.get('/', function(req, res, next) {
     var data = req.body;
     const err = req.session.error? true : false;
     delete req.session.error;
-    res.render('admin/adminLogin', { layout: 'adminLoginLayout.hbs', title: 'Royden Rego - Admin Login', login_error: err});
+    
+    const logout = req.query.logout? true : false;
+    
+    res.render('admin/adminLogin', { layout: 'adminLoginLayout.hbs', title: 'Royden Rego - Admin Login', login_error: err, logout});
 });
 
 module.exports = router;
