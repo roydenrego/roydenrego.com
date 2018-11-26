@@ -1,0 +1,78 @@
+            <div class="main-content-inner">
+                <div class="row">
+                    <div class="col-lg-6 col-ml-12">
+                        <div class="row">
+                            <!-- Textual inputs start -->
+                            <div class="col-12 mt-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">New Project</h4>
+                                        
+                                        <form action="/admin/new-project" method="POST">
+                                        
+                                            <div class="form-group">
+                                                <label for="title" class="col-form-label">Title</label>
+                                                <input class="form-control" type="text" id="title" name="title" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-form-label">Description</label>
+                                                <input class="form-control" type="text" name="description" id="description" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="image_url" class="col-form-label">Featured Image URL</label>
+                                                <input class="form-control" type="text" name="image_url" id="image-url" required>
+                                            </div>
+                                           
+                                            <div class="form-row">
+                                                
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="team-size">Team Size</label>
+                                                    <input type="number" class="form-control" id="team-size" placeholder="Team Size" name="team_size" required>
+                                                </div>
+                                                
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="duration">Duration</label>
+                                                    <input type="number" class="form-control" id="duration" placeholder="Duration" name="duration" required>
+                                                </div>
+                                                
+                                                <div class="col-md-4 mb-3">
+                                                    <label class="col-form-label" for="project-type">Project Type</label>
+                                                    <select class="form-control" name="project_type" id="project-type">
+                                                        <option value="web-design">Web Design</option>
+                                                        <option value="mobile-app">Mobile App</option>
+                                                        <option value="workshop">Workshop</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="form-group">
+                                                <label for="project-date" class="col-form-label">Project Date</label>
+                                                <input class="form-control" type="text" id="project-date" name="project_date">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="content" class="col-form-label">Content</label>
+                                                <textarea name="content" id="content"></textarea>
+                                            </div>
+                                            
+                                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Textual inputs end -->
+                            
+                        </div>
+                    </div>
+                    
+            </div>
+            
+            <script>
+                 CKEDITOR.replace( 'content' , {
+                    "extraPlugins": "imagebrowser,autogrow",
+                    "imageBrowser_listUrl": "/admin/getimages",
+                    filebrowserUploadUrl: "/admin/uploadimage",
+                    skin: 'office2013'
+                });
+            </script>

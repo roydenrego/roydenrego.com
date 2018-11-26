@@ -3,14 +3,14 @@
                     <div class="row">
                         
                         {{# each projects }}
-                        <div class="col-lg-4 col-md-6 mt-5">
+                        <div class="col-lg-4 col-md-6 mt-5" id="project-{{ this._id }}">
                             <div class="card card-bordered">
                                 <img class="card-img-top img-fluid" src="{{ this.image_url }}" alt="image">
                                 <div class="card-body">
                                     <h5 class="title">{{ this.title }}</h5>
                                     <p class="card-text">{{ this.description }}</p>
                                     <a href="/admin/edit-project?id={{ this._id }}" class="btn btn-primary">Edit</a>
-                                    <a href="#" class="btn btn-danger" style="float: right">Delete</a>
+                                    <a href="#" class="btn btn-danger project-delete" style="float: right" data-id="{{ this._id }}">Delete</a>
                                 </div>
                             </div>
                         </div>

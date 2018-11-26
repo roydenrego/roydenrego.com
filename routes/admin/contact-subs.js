@@ -25,7 +25,6 @@ router.get('/', function(req, res, next) {
     }
     
     Contact.find({}).sort({'created': -1}).exec(function(err, content) {
-        //console.log(content);
         res.render('admin/contact-subs', { layout: 'adminLayout.hbs', title: `Royden Rego - ${page.title}`, user, page, subs: content });
     });
 });

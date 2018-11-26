@@ -20,6 +20,7 @@ var adminRouter = require('./routes/admin');
 var adminLoginRouter = require("./routes/admin/login");
 var adminProjectRouter = require('./routes/admin/projects');
 var adminEditProjectRouter = require('./routes/admin/edit-project');
+var adminNewProjectRouter = require('./routes/admin/new-project');
 var adminContactRouter = require('./routes/admin/contact-subs');
 
 var app = express();
@@ -69,6 +70,7 @@ app.use('/admin', adminRouter);
 app.use('/admin/login', adminLoginRouter);
 app.use('/admin/projects', adminProjectRouter);
 app.use('/admin/edit-project', adminEditProjectRouter);
+app.use('/admin/new-project', adminNewProjectRouter);
 app.use('/admin/contact', adminContactRouter);
 
 //Handle contact form submission
@@ -254,6 +256,51 @@ app.post('/admin/edit-project', function(req, res) {
     res.redirect(`/admin/edit-project?id=${data.id}`);
   });
 
+});
+
+app.post('/admin/new-project', function(req, res) {
+
+  if (!req.session.userId) {
+    res.json({ statuscode: 400, status: "Bad Request" });
+    return;
+  }
+
+  var data = req.body;
+
+  var Content = require('./models/content');
+
+  Content.create(data, function(err, proj) {
+    if (err) {
+      var error = new Error('Bad Request');
+      error.status = 400;
+      res.locals.message = err.message;
+      res.locals.error = error;
+      res.status(400);
+      res.render('error', { title: 'Invalid Action', rel_link: '/' });
+      return;
+    }
+    res.redirect(`/admin/edit-project?id=${proj._id}`);
+  });
+
+});
+
+app.post('/admin/delete-project', function(req, res) {
+  if (!req.session.userId) {
+    res.json({ statuscode: 400, status: "Bad Request" });
+    return;
+  }
+
+  var data = req.body;
+
+  var Content = require('./models/content');
+
+  Content.deleteOne({ _id: data.id }, function(err) {
+    if (err) {
+      res.json({statuscode: 120, status: "There an error in deleting the project"});
+      return;
+    }
+    res.json({statuscode: 200, status: "Successfully deleted the project"});
+  });
 });
 
 
