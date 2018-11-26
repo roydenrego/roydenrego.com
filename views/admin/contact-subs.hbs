@@ -7,30 +7,30 @@
                                 <h4 class="header-title">Contact Submissions</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
-                                        <table class="table table-hover progress-table text-center">
+                                        <table class="table table-hover progress-table text-center" id="contactSubmissions">
                                             <thead class="text-uppercase">
                                                 <tr>
-                                                    <th scope="col">ID</th>
+                                                    <th scope="col">SL No</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Message</th>
                                                     <th scope="col">Sent At</th>
-                                                    <th scope="col">action</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 
                                                 {{# each subs }}
-                                                <tr>
-                                                    <th scope="row">1</th>
+                                                <tr id="cs-row-{{ this._id }}">
+                                                    <th scope="row">{{ counter @index }}</th>
                                                     <td>{{ this.fullname }}</td>
                                                     <td>{{ this.email }}</td>
                                                     <td>{{ this.message }}</td>
                                                     <td>{{ printFullDate this.created }}</td>
                                                     <td>
                                                         <ul class="d-flex justify-content-center">
-                                                            <li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>
-                                                            <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
+                                                            {{!--<li class="mr-3"><a href="#" class="text-secondary"><i class="fa fa-edit"></i></a></li>--}}
+                                                            <li><a href="#" class="text-danger contact-delete" data-id="{{ this._id }}"><i class="ti-trash"></i></a></li>
                                                         </ul>
                                                     </td>
                                                 </tr>

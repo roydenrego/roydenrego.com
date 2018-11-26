@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
   "July", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
@@ -35,8 +37,11 @@ var register = function(Handlebars) {
         return 1.2 + (index / 10);
       },
       printFullDate: function(str) {
-        var d = new Date(str);
-        return d.toLocaleString()
+        var d = moment(str);
+        return d.format('DD/MM/gggg HH:mm:ss');
+      },
+      counter: function(index) {
+        return index + 1;
       }
     };
   

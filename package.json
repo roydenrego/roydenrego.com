@@ -25,6 +25,7 @@
     "gravatar": "^1.7.0",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
+    "moment": "^2.22.2",
     "mongoose": "^5.2.11",
     "morgan": "~1.9.0",
     "multer": "^1.4.1"

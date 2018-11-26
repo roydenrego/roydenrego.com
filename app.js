@@ -191,7 +191,7 @@ app.get('/admin/logout', function(req, res) {
 app.get('/admin/getimages', function(req, res) {
 
   if (!req.session.userId) {
-    res.json({statuscode: 400, status: "Bad Request"});
+    res.json({ statuscode: 400, status: "Bad Request" });
     return;
   }
 
@@ -217,43 +217,63 @@ app.get('/admin/getimages', function(req, res) {
 const upload = multer();
 
 app.post('/admin/uploadimage', upload.single('upload'), function(req, res, next) {
-  
+
   if (!req.session.userId) {
-    res.json({statuscode: 400, status: "Bad Request"});
+    res.json({ statuscode: 400, status: "Bad Request" });
     return;
   }
-  
+
   var fileName = Util.random_string(20) + '.' + Util.get_ext(req.file.originalname);
-  
+
   const params = {
-          Bucket: 'roydenrego', // pass your bucket name
-          Key: `content/${fileName}`, // file will be saved as testBucket/contacts.csv
-          Body: req.file.buffer,
-          ContentType: req.file.mimetype,
-          ACL:'public-read'
-      };
-      s3.upload(params, function(s3Err, data) {
-          if (s3Err) throw s3Err
-          console.log(`File uploaded successfully at ${data.Location}`);
-          res.json({uploaded: 1, fileName: fileName, url: data.Location});
-      });
+    Bucket: 'roydenrego', // pass your bucket name
+    Key: `content/${fileName}`, // file will be saved as testBucket/contacts.csv
+    Body: req.file.buffer,
+    ContentType: req.file.mimetype,
+    ACL: 'public-read'
+  };
+  s3.upload(params, function(s3Err, data) {
+    if (s3Err) throw s3Err
+    console.log(`File uploaded successfully at ${data.Location}`);
+    res.json({ uploaded: 1, fileName: fileName, url: data.Location });
+  });
 });
 
 app.post('/admin/edit-project', function(req, res) {
-  
+
   if (!req.session.userId) {
-    res.json({statuscode: 400, status: "Bad Request"});
+    res.json({ statuscode: 400, status: "Bad Request" });
     return;
   }
-  
+
   var data = req.body;
-  
+
   var Content = require('./models/content');
 
   Content.updateOne({ _id: data.id }, data, function(err, dbres) {
     res.redirect(`/admin/edit-project?id=${data.id}`);
   });
-  
+
+});
+
+
+app.post('/admin/delete-contact', function(req, res) {
+  if (!req.session.userId) {
+    res.json({ statuscode: 400, status: "Bad Request" });
+    return;
+  }
+
+  var data = req.body;
+
+  var Contact = require('./models/contact');
+
+  Contact.deleteOne({ _id: data.id }, function(err) {
+    if (err) {
+      res.json({statuscode: 120, status: "There an error in deleting the submission"});
+      return;
+    }
+    res.json({statuscode: 200, status: "Successfully deleted the submission"});
+  });
 });
 
 // catch 404 and forward to error handler
