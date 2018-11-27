@@ -34,6 +34,21 @@ Start by typing the following commands in your terminal in order to get **Admina
 > npm start
 ```
 
+Create .env file whose contents should be as below:
+
+```
+DB_CONN="DATABASE_CONNECTION_STRING_HERE"
+SENDGRID_API_KEY="SENDGRID_API_KEY_HERE"
+AWS_ACCESS_KEY="FILL_HERE"
+AWS_SECRET_ACCESS_KEY="TO_BE_FILLED"
+SESS_SECRET="ANY_RANDOM_STRING_OF_YOUR_CHOICE"
+```
+
+You need to replace the placeholders with actual API Keys which can be obtained from the appropriate vendors.
+  - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+  - [SendGrid](https://sendgrid.com/)
+  - [AWS S3](https://aws.amazon.com/s3/)
+
 ## Built With
 - Stimulus Template: [http://www.templatemo.com/tm-498-stimulus](http://www.templatemo.com/tm-498-stimulus)
 - News Cards: [https://codepen.io/choogoor/pen/YWBxAg](https://codepen.io/choogoor/pen/YWBxAg)
