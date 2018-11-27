@@ -11,5 +11,5 @@ describe('Util', () => {
     it('extracts the extension from the filename', () => {
         expect(Util.get_ext('Tiara.jpg')).toEqual('jpg');
         expect(Util.get_ext('test.png')).toEqual('png');
-    })
+    });
 });
