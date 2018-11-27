@@ -137,5 +137,6 @@ $(document).ready(function() {
       
       $("#port-title").text(data.title);
       $("#popup-article .content")[0].innerHTML = data.content;
+      $(".popup__close").attr('href', '#card-' + id);
     });
 });

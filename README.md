@@ -30,11 +30,9 @@ Start by typing the following commands in your terminal in order to get **Admina
 ```
 > git clone https://github.com/roydenrego/roydenrego.com.git roydenrego
 > cd roydenrego
-> npm install
-> npm start
 ```
 
-Create .env file whose contents should be as below:
+Create a .env file in the root of the project whose contents should be as below:
 
 ```
 DB_CONN="DATABASE_CONNECTION_STRING_HERE"
@@ -48,6 +46,12 @@ You need to replace the placeholders with actual API Keys which can be obtained 
   - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
   - [SendGrid](https://sendgrid.com/)
   - [AWS S3](https://aws.amazon.com/s3/)
+
+Once the .env file is setup, you can run the website by executing the following commands:
+```
+> npm install
+> npm start
+```
 
 ## Built With
 - Stimulus Template: [http://www.templatemo.com/tm-498-stimulus](http://www.templatemo.com/tm-498-stimulus)
