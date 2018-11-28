@@ -6,6 +6,10 @@ describe('Test the root path', () => {
     test('It should response the GET method', () => {
         return request(app).get('/').expect(200);
     });
-    
-    afterAll(() => app.mongoose.disconnect());
+
+    afterAll(() => {
+        app.close();
+        app.mongoose.connection.close();
+        app.mongoose.disconnect()
+    });
 })
