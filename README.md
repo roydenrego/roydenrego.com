@@ -30,6 +30,7 @@ Start by typing the following commands in your terminal in order to get **Admina
 ```
 > git clone https://github.com/roydenrego/roydenrego.com.git roydenrego
 > cd roydenrego
+> npm install
 ```
 
 Create a .env file in the root of the project whose contents should be as below:
@@ -47,9 +48,8 @@ You need to replace the placeholders with actual API Keys which can be obtained 
   - [SendGrid](https://sendgrid.com/)
   - [AWS S3](https://aws.amazon.com/s3/)
 
-Once the .env file is setup, you can run the website by executing the following commands:
+Once the .env file is setup, you can run the website by executing the following command:
 ```
-> npm install
 > npm start
 ```
 

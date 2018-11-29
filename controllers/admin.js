@@ -1,6 +1,12 @@
 const multer = require('multer');
 const Util = require('../helpers/util');
 
+const { google } = require('googleapis');
+const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
+const jwt = new google.auth.JWT(process.env.CLIENT_EMAIL, null, process.env.PRIVATE_KEY, scopes);
+
+const view_id = '185414323';
+
 module.exports.set = function(app, s3) {
 
     //Admin Routers
@@ -209,5 +215,83 @@ module.exports.set = function(app, s3) {
             }
             res.json({ statuscode: 200, status: "Successfully deleted the submission" });
         });
+    });
+    
+    
+    
+    //Analytics API Endpoints
+    app.post('/admin/seo/minstats', function(req, res) {
+        if (!req.session.userId) {
+            res.json({ statuscode: 400, status: "Bad Request" });
+            return;
+        }
+
+        var data = req.body;
+        
+        async function getData() {
+            const response = await jwt.authorize()
+            const result = await google.analytics('v3').data.ga.get({
+                'auth': jwt,
+                'ids': 'ga:' + view_id,
+                'start-date': `${data.days}daysAgo`,
+                'end-date': 'today',
+                'metrics': 'ga:pageviews,ga:users,ga:newUsers,ga:sessions',
+                'dimensions': 'ga:date'
+            })
+
+            res.json(result.data);
+        }
+
+        getData();
+    });
+    
+    app.post('/admin/seo/userstats', function(req, res) {
+        if (!req.session.userId) {
+            res.json({ statuscode: 400, status: "Bad Request" });
+            return;
+        }
+
+        var data = req.body;
+        
+        async function getData() {
+            const response = await jwt.authorize()
+            const result = await google.analytics('v3').data.ga.get({
+                'auth': jwt,
+                'ids': 'ga:' + view_id,
+                'start-date': `150daysAgo`,
+                'end-date': 'today',
+                'metrics': 'ga:users',
+                'dimensions': 'ga:date'
+            })
+
+            res.json(result.data);
+        }
+
+        getData();
+    });
+    
+    app.post('/admin/seo/extrastats', function(req, res) {
+        if (!req.session.userId) {
+            res.json({ statuscode: 400, status: "Bad Request" });
+            return;
+        }
+        
+        var data = req.body;
+        
+        async function getData() {
+            const response = await jwt.authorize()
+            const result = await google.analytics('v3').data.ga.get({
+                'auth': jwt,
+                'ids': 'ga:' + view_id,
+                'start-date': `30daysAgo`,
+                'end-date': 'today',
+                'metrics': 'ga:users',
+                'dimensions': data.dimension
+            })
+
+            res.json(result.data);
+        }
+
+        getData();
     });
 }

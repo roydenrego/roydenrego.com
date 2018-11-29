@@ -183,7 +183,8 @@ function generateChartData() {
                     pulled: true
                 });
             }
-        } else {
+        }
+        else {
             chartData.push({
                 type: types[i].type,
                 percent: types[i].percent,
@@ -220,7 +221,8 @@ if ($('#ampiechart3').length) {
                 var chart = event.chart;
                 if (event.dataItem.dataContext.id != undefined) {
                     selected = event.dataItem.dataContext.id;
-                } else {
+                }
+                else {
                     selected = undefined;
                 }
                 chart.dataProvider = generateChartData();
@@ -399,34 +401,98 @@ if ($('#highpiechart6').length) {
 /*-------------- 6 Pie chart highcharts end ------------*/
 
 /*-------------- 7 Pie chart chartjs start ------------*/
-if ($('#seolinechart8').length) {
-    var ctx = document.getElementById("seolinechart8").getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'doughnut',
-        // The data for our dataset
-        data: {
-            labels: ["FB", "TW", "G+", "INS"],
-            datasets: [{
-                backgroundColor: [
-                    "#8919FE",
-                    "#12C498",
-                    "#F8CB3F",
-                    "#E36D68"
-                ],
-                borderColor: '#fff',
-                data: [810, 410, 260, 150],
-            }]
-        },
-        // Configuration options go here
-        options: {
-            legend: {
-                display: true
-            },
-            animation: {
-                easing: "easeInOutBack"
-            }
+$.ajax({
+    url: '/admin/seo/extrastats',
+    method: 'post',
+    data: 'dimension=ga:country',
+    success: function(obj) {
+        
+        var countries = [];
+        var dataRows = [];
+        obj.rows.forEach(function(val, index) {
+            countries.push(val[0]);
+            dataRows.push(val[1]);
+        });
+        
+
+        if ($('#seolinechart900').length) {
+            var ctx = document.getElementById("seolinechart900").getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'doughnut',
+                // The data for our dataset
+                data: {
+                    labels: countries,
+                    datasets: [{
+                        backgroundColor: [
+                            "#8919FE",
+                            "#12C498",
+                            "#F8CB3F",
+                            "#E36D68"
+                        ],
+                        borderColor: '#fff',
+                        data: dataRows,
+                    }]
+                },
+                // Configuration options go here
+                options: {
+                    legend: {
+                        display: true
+                    },
+                    animation: {
+                        easing: "easeInOutBack"
+                    }
+                }
+            });
         }
-    });
-}
+    }
+});
+
+
+$.ajax({
+    url: '/admin/seo/extrastats',
+    method: 'post',
+    data: 'dimension=ga:browser',
+    success: function(obj) {
+        
+        var countries = [];
+        var dataRows = [];
+        obj.rows.forEach(function(val, index) {
+            countries.push(val[0]);
+            dataRows.push(val[1]);
+        });
+        
+
+        if ($('#seolinechart8').length) {
+            var ctx = document.getElementById("seolinechart8").getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'doughnut',
+                // The data for our dataset
+                data: {
+                    labels: countries,
+                    datasets: [{
+                        backgroundColor: [
+                            "#8919FE",
+                            "#12C498",
+                            "#F8CB3F",
+                            "#E36D68"
+                        ],
+                        borderColor: '#fff',
+                        data: dataRows,
+                    }]
+                },
+                // Configuration options go here
+                options: {
+                    legend: {
+                        display: true
+                    },
+                    animation: {
+                        easing: "easeInOutBack"
+                    }
+                }
+            });
+        }
+    }
+});
 /*-------------- 7 Pie chart chartjs end ------------*/
