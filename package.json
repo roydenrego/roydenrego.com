@@ -1,5 +1,5 @@
 {
-  "name": "node-express-mongo",
+  "name": "roydenrego",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -35,6 +35,7 @@
   "devDependencies": {
     "jest": "^23.6.0",
     "nodemon": "^1.18.6",
+    "superagent": "^4.0.0",
     "supertest": "^3.3.0"
   }
 }

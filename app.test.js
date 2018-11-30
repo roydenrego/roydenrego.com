@@ -3,13 +3,14 @@
 const request = require('supertest');
 const app = require('./app')
 const mongoose = require('./app').mongoose;
+
 describe('Test the root path', () => {
-    it('responds to the GET method', () => {
-        return request(app).get('/').expect(200);
+    it('responds to the GET method', (done) => {
+        return request(app).get('/').expect(200, done);
     });
     
-    it('gives 404 for everything else', () => {
-        return request(app).get('/something').expect(404); 
+    it('gives 404 for everything else', (done) => {
+        return request(app).get('/something').expect(404, done); 
     });
 
     afterAll(() => {

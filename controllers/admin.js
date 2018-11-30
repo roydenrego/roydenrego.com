@@ -64,7 +64,7 @@ module.exports.set = function(app, s3) {
                         req.session.email = user.email;
                         req.session.username = user.username;
                         req.session.name = user.name;
-                        console.log(`Logged In User: ${user.email}`);
+                        
                         res.redirect('/admin');
                         return;
                     }
