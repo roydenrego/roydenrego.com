@@ -1,4 +1,5 @@
 eval "$(ssh-agent -s)"
+ls
 chmod 600 rr-lsdf-ap-sea.pem
 ssh-add rr-lsdf-ap-sea.pem
 git fetch --unshallow
