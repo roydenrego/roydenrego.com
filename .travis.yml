@@ -1,7 +1,9 @@
 language: node_js
 node_js:
-  - "10"
+- '10'
 deploy:
   provider: script
-  script: git fetch --unshallow && git push https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/AZURE_WA_SITE.git HEAD:refs/heads/master
+  script: bash deploy.sh
   on: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_26b4962af0e7_key -iv $encrypted_26b4962af0e7_iv -in rr-lsdf-ap-sea.pem.enc -out rr-lsdf-ap-sea.pem -d
