@@ -1,6 +1,6 @@
 eval "$(ssh-agent -s)"
-chmod 600 .travis/rr-lsdf-ap-sea.pem
-ssh-add .travis/rr-lsdf-ap-sea.pem
+chmod 600 rr-lsdf-ap-sea.pem
+ssh-add rr-lsdf-ap-sea.pem
 git fetch --unshallow
-git remote add deploy bitnami@3.0.229.216:roydenrego.git
+git remote add deploy $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_REP.git
 git push deploy master
