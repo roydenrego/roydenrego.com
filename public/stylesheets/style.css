@@ -244,6 +244,7 @@
 
 .example-2 .title a {
   color: #fff;
+  word-wrap: break-word;
 }
 
 .example-2 .button {
