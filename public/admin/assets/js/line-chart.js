@@ -1203,8 +1203,9 @@ $.ajax({
     method: 'post',
     data: 'days=10',
     success: function(obj) {
-
+    
         $("#usersCount").text(obj.totalsForAllResults['ga:users']);
+        $("#sessionsCount").text(obj.totalsForAllResults['ga:sessions'])
 
         var labels = lastNDays(11);
 
