@@ -1,37 +1,43 @@
 /* global afterAll */
 
 const request = require('supertest');
-//const superagent = require('superagent');
+// const superagent = require('superagent');
 const app = require('../app')
 const mongoose = require('../app').mongoose;
 
 require('dotenv').config();
 
-var cookie;
+//var cookie;
 var agent = request.agent(app);
 
 describe(`Test the Admin API's`, () => {
 
-    
+    it('does not allow access to admin when logged in', function(done) {
+        agent
+            .get('/admin')
+            .expect(301, done);
+    });
+
     it('logs the user in', (done) => {
-            agent
-                .post('/admin/login')
-                .send({ email: process.env.TEST_ACC_EMAIL, password: process.env.TEST_ACC_PASSWORD })
-                .expect(302)
-                .expect('Location', '/admin')
-                .end(function(err, res) {
-                    if (err) return done(err);
-                    console.log(res.headers['set-cookie']);
-                    cookie = res.headers['set-cookie'];
-                    return done();
-                });
-        });
-        
+        agent
+            .post('/admin/login')
+            .send({ email: process.env.TEST_ACC_EMAIL, password: process.env.TEST_ACC_PASSWORD })
+            .expect(302)
+            .expect('Location', '/admin')
+            .end(function(err, res) {
+                if (err) return done(err);
+                const cookie = res
+                    .headers['set-cookie'][0]
+                    .split(',')
+                    .map(item => item.split(';')[0]);
+                agent.jar.setCookies(cookie);
+                return done();
+            });
+    });
+
     // it('should allow access to admin when logged in', function(done) {
-    //     console.log(cookie.toString());
-    //     var req = agent
+    //     agent
     //         .get('/admin')
-    //         .set({ 'Cookie': cookie.toString() })
     //         .expect(200, done);
     // });
 
