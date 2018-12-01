@@ -28,7 +28,6 @@ describe(`Test the Admin API's`, () => {
         });
         
     
-    //added dummy comment
     // it('should allow access to admin when logged in', function(done) {
     //     console.log(cookie.toString());
     //     var req = agent
