@@ -81,6 +81,13 @@ $(document).ready(function() {
 
   new WOW({ mobile: false }).init();
 
+  //Preload the project contents
+  $(".portfolio-container").ready(function() {
+    $('.portfolio-container > div').each(function(index) {
+      var obj = JSON.parse($(this).attr('data-json'));
+      $('<div></div>').html(obj.content);
+    });
+  });
 
   //Contact Form Submit
 
@@ -130,13 +137,13 @@ $(document).ready(function() {
       }
     });
 
-    //Loading the Portfolio Popup
-    $('.card .content a').on('click', function(e) {
-      var id = $(this).attr('data-id');
-      var data = JSON.parse($('#card-' + id).attr('data-json'));
-      
-      $("#port-title").text(data.title);
-      $("#popup-article .content")[0].innerHTML = data.content;
-      $(".popup__close").attr('href', '#card-' + id);
-    });
+  //Loading the Portfolio Popup
+  $('.card .content a').on('click', function(e) {
+    var id = $(this).attr('data-id');
+    var data = JSON.parse($('#card-' + id).attr('data-json'));
+
+    $("#port-title").text(data.title);
+    $("#popup-article .content")[0].innerHTML = data.content;
+    $(".popup__close").attr('href', '#card-' + id);
+  });
 });

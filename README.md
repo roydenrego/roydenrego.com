@@ -41,12 +41,19 @@ SENDGRID_API_KEY="SENDGRID_API_KEY_HERE"
 AWS_ACCESS_KEY="FILL_HERE"
 AWS_SECRET_ACCESS_KEY="TO_BE_FILLED"
 SESS_SECRET="ANY_RANDOM_STRING_OF_YOUR_CHOICE"
+CLIENT_EMAIL="ANALYTICS_CLIENT_EMAIL"
+PRIVATE_KEY="ANALYTICS_PRIVATE_KEY"
+TEST_ACC_EMAIL="TEST_ACCOUNT_EMAIL"
+TEST_ACC_PASSWORD="TEST_ACCOUNT_PASSWORD"
 ```
 
 You need to replace the placeholders with actual API Keys which can be obtained from the appropriate vendors.
   - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
   - [SendGrid](https://sendgrid.com/)
   - [AWS S3](https://aws.amazon.com/s3/)
+  - [Google Analytics](https://analytics.google.com/analytics/web/)
+
+Test email and password is only required if you are running unit tests. Simply insert the any sample email and password to the database as per the Scheme and you should be good to go.
 
 Once the .env file is setup, you can run the website by executing the following command:
 ```
