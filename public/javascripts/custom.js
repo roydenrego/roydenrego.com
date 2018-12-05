@@ -82,12 +82,12 @@ $(document).ready(function() {
   new WOW({ mobile: false }).init();
 
   //Preload the project contents
-  $(".portfolio-container").ready(function() {
-    $('.portfolio-container > div').each(function(index) {
-      var obj = JSON.parse($(this).attr('data-json'));
-      $('<div></div>').html(obj.content);
-    });
-  });
+  // $(".portfolio-container").ready(function() {
+  //   $('.portfolio-container > div').each(function(index) {
+  //     var obj = JSON.parse($(this).attr('data-json'));
+  //     $('<div></div>').html(obj.content);
+  //   });
+  // });
 
   //Contact Form Submit
 
