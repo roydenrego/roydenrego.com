@@ -31,6 +31,7 @@ module.exports.set = function(app) {
                     'name': 'Royden Rego',
                     'email': 'no-reply@roydenrego.com',
                 },
+                replyTo: data.email,
                 subject: 'Royden Rego - ContactForm',
                 text: 'You have a new contact form submission',
                 html: '<p>You have a new contact form submission</p>' +
