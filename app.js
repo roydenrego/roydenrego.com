@@ -57,6 +57,9 @@ indexController.set(app);
 var adminController = require('./controllers/admin');
 adminController.set(app,s3);
 
+var blogController = require('./controllers/blog');
+blogController.set(app);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
