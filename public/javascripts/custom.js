@@ -101,13 +101,22 @@ $(document).ready(function() {
       cache: false,
       data: $("#contactForm").serialize(),
       success: function(data) {
-        $("#contactForm").trigger('reset')
+        $("#contactForm").trigger('reset');
 
-        swal(
-          'Sent',
-          'Your message has been sent successfully. I will reach out to you very soon.',
-          'success'
-        );
+        if(data.statuscode == 200) {
+          swal(
+            'Sent',
+            'Your message has been sent successfully. I will reach out to you very soon.',
+            'success'
+          );
+        }
+        else {
+          swal(
+            'Error',
+            data.status,
+            'error'
+          );
+        }
       }
     });
   });
