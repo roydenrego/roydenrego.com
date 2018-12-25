@@ -5,8 +5,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    var page = {
+        title: 'Blog - Royden Rego',
+        id: 'blog'
+    }
     //Content.find(function(err, content) {
-        res.render('blog', { title: 'Royden Rego', rel_link: '/'}); //, projects: content});
+        res.render('blog', { title: page.title, rel_link: '/', page}); //, projects: content});
     //});
 });
 
