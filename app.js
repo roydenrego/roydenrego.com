@@ -27,6 +27,8 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
+const maxAge = process.env.CACHE_MAXAGE;
+
 // view engine setup
 app.engine('.hbs', expressHbs({
   defaultLayout: 'layout',
@@ -39,7 +41,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge }));
 
 //use sessions for tracking logins
 app.use(session({
