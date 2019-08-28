@@ -52,7 +52,7 @@ module.exports.set = function(app) {
                 html: '<p>Hi ' + data.fullname + ',</p>' +
                     '<p>I have received your message and will revert back to you as soon as I can.</p>' +
                     '<p>Warm Regards<br>Royden Rego</p>' +
-                    '<p>Disclaimer: This is a automated message sent automatically by the system. Please do not reply to this email as there is no person monitoring this email address.</p>',
+                    '<p>Disclaimer: This is a automated message sent automatically by the system. Please do not reply to this email since there is no person monitoring this email address.</p>',
             };
             sgMail.send(usrMsg);
 
