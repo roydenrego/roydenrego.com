@@ -7,7 +7,7 @@
 
 var site_url = "https://roydenrego.com";
 
-$(window).load(function() {
+$(window).load(function () {
   $('.preloader').fadeOut(1000); // set duration in brackets    
 });
 
@@ -16,19 +16,19 @@ $(window).load(function() {
 /* HTML document is loaded. DOM is ready. 
 -------------------------------------------*/
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 
   /*-------------------------------------------------------------------------------
     Navigation - Hide mobile menu after clicking on a link
   -------------------------------------------------------------------------------*/
 
-  $('.navbar-collapse a').click(function() {
+  $('.navbar-collapse a').click(function () {
     $(".navbar-collapse").collapse('hide');
   });
 
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(".navbar").offset().top > 50) {
       $(".navbar-fixed-top").addClass("top-nav-collapse");
     }
@@ -63,8 +63,8 @@ $(document).ready(function() {
     smoothScroll js
   -------------------------------------------------------------------------------*/
 
-  $(function() {
-    $('.custom-navbar a, #home a').bind('click', function(event) {
+  $(function () {
+    $('.custom-navbar a, #home a').bind('click', function (event) {
       var $anchor = $(this);
       $('html, body').stop().animate({
         scrollTop: $($anchor.attr('href')).offset().top - 49
@@ -91,19 +91,20 @@ $(document).ready(function() {
 
   //Contact Form Submit
 
-  $("#contactForm").on('submit', function(e) {
+  $("#contactForm").on('submit', function (e) {
     e.preventDefault();
 
-    //let submit_url = site_url + "/submit"
     $.ajax({
       url: '/submit',
       type: "POST",
       cache: false,
       data: $("#contactForm").serialize(),
-      success: function(data) {
-        $("#contactForm").trigger('reset');
+      success: function (data) {
 
-        if(data.statuscode == 200) {
+        console.log(data);
+        if (data.statuscode == 200) {
+          $("#contactForm").trigger('reset');
+
           swal(
             'Sent',
             'Your message has been sent successfully. I will reach out to you very soon.',
@@ -124,7 +125,7 @@ $(document).ready(function() {
   //Content Filter
 
   $('input:radio[name="project_type"]').change(
-    function() {
+    function () {
       if (this.checked) {
         var type = $(this).attr('id');
 
@@ -147,7 +148,7 @@ $(document).ready(function() {
     });
 
   //Loading the Portfolio Popup
-  $('.card .content a').on('click', function(e) {
+  $('.card .content a').on('click', function (e) {
     var id = $(this).attr('data-id');
     var data = JSON.parse($('#card-' + id).attr('data-json'));
 
@@ -156,3 +157,9 @@ $(document).ready(function() {
     $(".popup__close").attr('href', '#card-' + id);
   });
 });
+
+
+function recaptchaCallback() {
+  $("#submit").prop('disabled', false);
+  $("#submit").removeClass('grc-disabled');
+}

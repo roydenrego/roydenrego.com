@@ -17,6 +17,7 @@ module.exports.set = function(app) {
 
         if(data['g-recaptcha-response'] === undefined || data['g-recaptcha-response'] === '' || data['g-recaptcha-response'] === null) {
             //Send JSON response
+            console.log(`The Captcha wasn't solved`);
             return res.json({ statuscode: 300, status: "Please select Captcha" });
         }
 
@@ -30,6 +31,7 @@ module.exports.set = function(app) {
             body = JSON.parse(body);
             // Success will be true or false depending upon captcha validation.
             if(body.success !== undefined && !body.success) {
+                console.log('Captcha Verification failed');
                 return res.json({ statuscode: 300, status: "Captcha Verification failed"});
             }
             

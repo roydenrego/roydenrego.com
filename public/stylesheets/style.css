@@ -706,6 +706,10 @@
   font-weight: 400;
 }
 
+.grc-disabled {
+  opacity: 0.5 !important;
+}
+
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 h1 {
     font-size: 148px;
