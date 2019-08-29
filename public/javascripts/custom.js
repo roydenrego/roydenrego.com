@@ -94,6 +94,9 @@ $(document).ready(function () {
   $("#contactForm").on('submit', function (e) {
     e.preventDefault();
 
+    $("#submit").prop('disabled', true);
+    $("#submit").addClass('grc-disabled');
+
     $.ajax({
       url: '/submit',
       type: "POST",
@@ -101,7 +104,9 @@ $(document).ready(function () {
       data: $("#contactForm").serialize(),
       success: function (data) {
 
-        console.log(data);
+        $("#submit").prop('disabled', false);
+        $("#submit").removeClass('grc-disabled');
+
         if (data.statuscode == 200) {
           $("#contactForm").trigger('reset');
 
