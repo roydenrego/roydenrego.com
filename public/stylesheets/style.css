@@ -596,6 +596,10 @@
   background: #211b19;
 }
 
+#about p {
+  text-align: justify;
+}
+
 
 .blog-active {
   background: transparent;
@@ -608,9 +612,10 @@
   padding-top: 100px;
 }
 
-#blog h3, p {
+#blog h3, #blog p {
   margin: 0;
   color: #616161;
+  text-align: justify;
 }
 
 #blog img {

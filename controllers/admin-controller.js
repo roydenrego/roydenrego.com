@@ -99,9 +99,11 @@ module.exports.projects_get = (req, res) => {
         title: 'Projects'
     }
 
-    Project.find(function (err, projects) {
-        res.render('admin/projects', { layout: 'adminLayout.hbs', title: `${APP_NAME} - ${page.title}`, user, page, projects });
-    });
+    Project.find({})
+        .sort({ created: -1 })
+        .exec(function (err, projects) {
+            res.render('admin/projects', { layout: 'adminLayout.hbs', title: `${APP_NAME} - ${page.title}`, user, page, projects });
+        });
 };
 
 module.exports.edit_project_get = (req, res) => {

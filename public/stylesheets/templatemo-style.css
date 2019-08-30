@@ -273,7 +273,10 @@ a:hover, a:active, a:focus {
 
 .custom-navbar {
     margin-bottom: 0;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .custom-navbar .navbar-brand {
@@ -320,7 +323,8 @@ a:hover, a:active, a:focus {
 }
 
 .custom-navbar .navbar-toggle .icon-bar {
-    background: #E3AE57;
+    /* background: #E3AE57; */
+    background: #000;
     border-color: transparent;
 }
 
@@ -329,6 +333,7 @@ a:hover, a:active, a:focus {
         padding: 12px 0;
         border-bottom: 0;
         background: 0 0; 
+        backdrop-filter: blur(0);
     }
     .custom-navbar.top-nav-collapse {
         background: #ffffff;

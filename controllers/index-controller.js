@@ -9,9 +9,11 @@ module.exports.index_get = (req, res) => {
         id: 'index'
     }
 
-    Project.find(function (err, projects) {
-        res.render('index', { title: page.title, rel_link: '', page, projects });
-    });
+    Project.find({})
+        .sort({ created: -1 })
+        .exec(function (err, projects) {
+            res.render('index', { title: page.title, rel_link: '', page, projects });
+        });
 };
 
 //Handle contact form submission
