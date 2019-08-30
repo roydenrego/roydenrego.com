@@ -26,6 +26,7 @@ const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
+app.set('s3', s3);
 
 const maxAge = process.env.CACHE_MAXAGE;
 
@@ -33,7 +34,7 @@ const maxAge = process.env.CACHE_MAXAGE;
 app.engine('.hbs', expressHbs({
   defaultLayout: 'layout',
   extname: '.hbs',
-  helpers: require("./helpers/hbs-helper.js").helpers
+  helpers: require("./util/hbs-helper.js").helpers
 }));
 app.set('view engine', '.hbs');
 
@@ -53,14 +54,17 @@ app.use(session({
   })
 }));
 
-var indexController = require('./controllers');
-indexController.set(app);
+var indexRouter = require('./routes/index');
+app.use('/', indexRouter);
 
-var adminController = require('./controllers/admin');
-adminController.set(app,s3);
+var adminRouter = require('./routes/admin');
+app.use('/admin', adminRouter);
 
-var blogController = require('./controllers/blog');
-blogController.set(app);
+var adminApiRouter = require('./routes/admin-api');
+app.use('/admin/api', adminApiRouter);
+
+// var blogController = require('./controllers/blog');
+// blogController.set(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -402,7 +402,7 @@ if ($('#highpiechart6').length) {
 
 /*-------------- 7 Pie chart chartjs start ------------*/
 $.ajax({
-    url: '/admin/seo/extrastats',
+    url: '/admin/api/stats/extra',
     method: 'post',
     data: 'dimension=ga:country',
     success: function(obj) {
@@ -450,7 +450,7 @@ $.ajax({
 
 
 $.ajax({
-    url: '/admin/seo/extrastats',
+    url: '/admin/api/stats/extra',
     method: 'post',
     data: 'dimension=ga:browser',
     success: function(obj) {

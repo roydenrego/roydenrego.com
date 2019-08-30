@@ -15,7 +15,7 @@ $(document).ready(function() {
         var id = $(this).attr('data-id');
 
         $.ajax({
-            url: '/admin/delete-contact',
+            url: '/admin/api/messages/delete',
             type: 'POST',
             data: 'id=' + id,
             success: function(obj) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
             if (result.value) {
 
                 $.ajax({
-                    url: '/admin/delete-project',
+                    url: '/admin/api/project/delete',
                     type: 'POST',
                     data: 'id=' + id,
                     success: function(obj) {

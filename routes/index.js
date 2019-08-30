@@ -1,19 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var Content = require('../models/content');
 
+var controller = require('../controllers/index-controller');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', controller.index_get);
 
-    var page = {
-        title: 'Royden Rego',
-        id: 'index'
-    }
-
-    Content.find(function(err, content) {
-        res.render('index', { title: page.title, rel_link: '', page, projects: content});
-    });
-});
+router.post('/submit', controller.submit_post);
 
 module.exports = router;

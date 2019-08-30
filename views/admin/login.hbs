@@ -7,7 +7,7 @@
     <div class="login-area login-bg">
         <div class="container">
             <div class="login-box ptb--100">
-                <form action="/admin/login" method="POST">
+                <form action="http://localhost:3000/admin/login" method="POST">
                     <div class="login-form-head">
                         <h4>Sign In</h4>
                         <p>This page is intended only for the admins of this site. Any authorized use is strictly prohibited.</p>
@@ -28,12 +28,12 @@
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1" name="email">
+                            <input type="email" id="exampleInputEmail1" name="email" required>
                             <i class="ti-email"></i>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1" name="password">
+                            <input type="password" id="exampleInputPassword1" name="password" required>
                             <i class="ti-lock"></i>
                         </div>
                         {{!--<div class="row mb-4 rmber-area">--}}

@@ -1197,11 +1197,11 @@ function lastNDays(n) {
     return result;
 }
 
-
 $.ajax({
-    url: '/admin/seo/minstats',
-    method: 'post',
+    url: '/admin/api/stats/short',
+    type: 'POST',
     data: 'days=10',
+    cache: false,
     success: function(obj) {
     
         $("#usersCount").text(obj.totalsForAllResults['ga:users']);
@@ -1470,7 +1470,7 @@ $.ajax({
 
 /*-------------- 10 line chart amchart start ------------*/
 $.ajax({
-    url: '/admin/seo/userstats',
+    url: '/admin/api/stats/users',
     method: 'post',
     data: 'days=10',
     success: function(obj) {

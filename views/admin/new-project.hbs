@@ -71,8 +71,8 @@
             <script>
                  CKEDITOR.replace( 'content' , {
                     "extraPlugins": "imagebrowser,autogrow",
-                    "imageBrowser_listUrl": "/admin/getimages",
-                    filebrowserUploadUrl: "/admin/uploadimage",
+                    "imageBrowser_listUrl": "/admin/api/media/list",
+                    filebrowserUploadUrl: "/admin/api/media/upload",
                     skin: 'office2013',
                     disableNativeSpellChecker: false
                 });
