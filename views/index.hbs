@@ -262,11 +262,9 @@
                          {{!-- <div class="mobile-app"></div> --}}
                     </div>
                     
-                    
-                    
                     <div class="portfolio-container">
                          
-                    {{# each projects }}
+                    {{#each projects }}
                          <div class="example-2 card wow fadeInUp {{ this.project_type }}" data-wow-delay="{{wowDelay @index}}s" id="card-{{ this._id }}" data-json="{{ printJson this }}">
                                {{!--style="background: url('{{ this.image_url }}') center/cover no-repeat;"--}}
                              <div class="wrapper" style="background: url({{this.image_url}}) center/cover no-repeat;">

@@ -13,7 +13,7 @@ var app = express();
 
 require('dotenv').config();
 
-mongoose.connect(process.env.DB_CONN, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_CONN, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 process.on('unhandledRejection', (reason, promise) => {

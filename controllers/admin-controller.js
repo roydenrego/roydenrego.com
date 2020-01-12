@@ -39,6 +39,7 @@ module.exports.login_post = (req, res) => {
 
     User.findOne({ email: email })
         .exec(function (err, user) {
+            console.log(user);
             if (err) {
                 res.json({ statuscode: 400 });
                 return;
@@ -49,7 +50,9 @@ module.exports.login_post = (req, res) => {
                 return;
             }
 
-            const bcrypt = require('bcrypt');
+            console.log(`User: ${user.password}`);
+
+            const bcrypt = require('bcryptjs');
 
             bcrypt.compare(password, user.password, function (err, result) {
                 if (result === true) {

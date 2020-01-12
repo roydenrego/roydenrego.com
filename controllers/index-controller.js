@@ -12,6 +12,8 @@ module.exports.index_get = (req, res) => {
     Project.find({})
         .sort({ created: -1 })
         .exec(function (err, projects) {
+            console.log(projects);
+            //res.send({status: 'ok'});
             res.render('index', { title: page.title, rel_link: '', page, projects });
         });
 };
